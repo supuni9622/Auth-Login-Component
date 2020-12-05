@@ -7,7 +7,7 @@ const Login = () => {
 
     const emailRef = useRef();
     const passwordRef = useRef();
-    const {login} = useAuth();
+    const {login,googleSignupLogin} = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -28,6 +28,23 @@ const Login = () => {
         }
         
         }, [login,history,setError]);
+    
+    const handleGoogle = useCallback(async(e) => {
+        e.preventDefault();
+    
+        try{
+            setError('');
+            setLoading(true);
+            await googleSignupLogin();
+            history.push('/');
+                
+        } catch {
+            setError('Failed to Sign in with Google!!');
+        }finally{
+            setLoading(false);
+        }
+            
+    }, [history,setError,googleSignupLogin]);
 
     return (
         <>
@@ -46,7 +63,7 @@ const Login = () => {
                   </Form.Group>
                 <Button className='w-100' variant='info' type='submit' disabled={loading}>Log In</Button>
               </Form>
-              <Button className="googleBtn w-100 text-center mt-2" variant='trasparent'>
+              <Button className="googleBtn w-100 text-center mt-2" variant='trasparent' onClick={handleGoogle}>
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                         alt="logo"
