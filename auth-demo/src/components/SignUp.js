@@ -16,10 +16,10 @@ const SignUp = () => {
 
         // Validations
         if(passwordRef.current.value !== passwordConfirmRef.current.value){
-            return setError('Passwords don not match');
+            return setError('Passwords don not match!!');
         }
         if(passwordRef.current.value.length < 6 ){
-            return setError('Password should have at least 6 characters');
+            return setError('Password should have at least 6 characters!!');
         }
 
         try{
@@ -28,7 +28,7 @@ const SignUp = () => {
             await signUp(emailRef.current.value, passwordRef.current.value);
             
         } catch {
-            setError('Failed to create an account');
+            setError('Failed to create an account!!');
         }finally{
             setLoading(false);
         }
@@ -41,7 +41,7 @@ const SignUp = () => {
               <Card.Body>
                 <h2 className='text-center mb-4'>Sign Up</h2>
                 {/* {JSON.stringify(currentUser)} */}
-                {currentUser && currentUser.email}
+                {currentUser && <Alert variant='success'>{currentUser.email} signup successfully!!</Alert>}
                 {error && <Alert variant='danger'>{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id='email'>
