@@ -46,6 +46,13 @@ const Login = () => {
                   </Form.Group>
                 <Button className='w-100' variant='info' type='submit' disabled={loading}>Log In</Button>
               </Form>
+              <Button className="googleBtn w-100 text-center mt-2" variant='trasparent'>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                        alt="logo"
+                    />
+                    Login With Google
+                </Button>
               <div className='w-100 text-center mt-2'>
                  <Link to='/forgot-password'>Forgot password?</Link>
                 </div> 

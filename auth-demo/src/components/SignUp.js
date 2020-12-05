@@ -60,6 +60,13 @@ const SignUp = () => {
                   </Form.Group>
                 <Button className='w-100' variant='info' type='submit' disabled={loading}>Sign Up</Button>
               </Form>
+              <Button className="googleBtn w-100 text-center mt-2" variant='trasparent'>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                        alt="logo"
+                    />
+                    Join With Google
+                </Button>
               </Card.Body>
           </Card>
           <div className='w-100 text-center mt-2'>
