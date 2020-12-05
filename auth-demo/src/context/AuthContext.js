@@ -34,9 +34,23 @@ export const AuthProvider = ({children}) => {
     const resetPassword = useCallback((email) => {
 
         // This is firebase function and here we call it 
-        return auth.reset(email);
+        return auth.sendPasswordResetEmail(email);
   
     },[]);
+
+    const updateEmail = useCallback((email) => {
+
+        // This is firebase function and here we call it 
+        return currentUser.updateEmail(email);
+  
+    },[currentUser]);
+
+    const updatePassword = useCallback((password) => {
+
+        // This is firebase function and here we call it 
+        return currentUser.updatePassword(password);
+  
+    },[currentUser]);
 
     useEffect(()=> {
         const unsubscribe = auth.onAuthStateChanged( user => {
@@ -51,7 +65,9 @@ export const AuthProvider = ({children}) => {
         signUp,
         login,
         logout,
-        resetPassword
+        resetPassword,
+        updateEmail,
+        updatePassword
     };
 
     return (

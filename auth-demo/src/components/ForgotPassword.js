@@ -20,7 +20,7 @@ const ForgotPassword = () => {
             setMessage('');
             setError('');
             setLoading(true);
-            await resetPassword(emailRef.current.value,);
+            await resetPassword(emailRef.current.value);
             setMessage('Check you inbox for further instructions!!');
             
         } catch {
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
             setLoading(false);
         }
         
-        }, [resetPassword,setError,setMessage]);
+        }, [setError,setMessage]);
 
     return (
         <>
