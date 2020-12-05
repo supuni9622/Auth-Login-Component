@@ -17,6 +17,13 @@ export const AuthProvider = ({children}) => {
 
     },[]);
 
+    const login = useCallback((email,password) => {
+
+      // This is firebase function and here we call it 
+        return auth.signInWithEmailAndPassword(email, password)
+
+    },[]);
+
     useEffect(()=> {
         const unsubscribe = auth.onAuthStateChanged( user => {
             setCurrentUser(user);
@@ -27,7 +34,8 @@ export const AuthProvider = ({children}) => {
 
     const value = {
         currentUser,
-        signUp
+        signUp,
+        login
     };
 
     return (
