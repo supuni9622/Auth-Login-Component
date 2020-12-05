@@ -8,7 +8,7 @@ const SignUp = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const {signUp, currentUser} = useAuth();
+    const {signUp} = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -35,7 +35,7 @@ const SignUp = () => {
             setLoading(false);
         }
         
-        }, [signUp]);
+        }, [signUp,history,setError]);
 
     return (
         <>
@@ -43,7 +43,7 @@ const SignUp = () => {
               <Card.Body>
                 <h2 className='text-center mb-4'>Sign Up</h2>
                 {/* {JSON.stringify(currentUser)} */}
-                {currentUser && <Alert variant='success'>{currentUser.email} signup successfully!!</Alert>}
+                {/* {currentUser && <Alert variant='success'>{currentUser.email} signup successfully!!</Alert>} */}
                 {error && <Alert variant='danger'>{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id='email'>

@@ -27,7 +27,7 @@ const Login = () => {
             setLoading(false);
         }
         
-        }, [login]);
+        }, [login,history,setError]);
 
     return (
         <>

@@ -24,6 +24,13 @@ export const AuthProvider = ({children}) => {
 
     },[]);
 
+    const logout = useCallback(() => {
+
+        // This is firebase function and here we call it 
+        return auth.signOut();
+  
+      },[]);
+
     useEffect(()=> {
         const unsubscribe = auth.onAuthStateChanged( user => {
             setCurrentUser(user);
@@ -35,7 +42,8 @@ export const AuthProvider = ({children}) => {
     const value = {
         currentUser,
         signUp,
-        login
+        login,
+        logout
     };
 
     return (
